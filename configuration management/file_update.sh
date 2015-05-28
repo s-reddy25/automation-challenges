@@ -3,8 +3,12 @@
 ###################################################################
 #   Script to update and distribute file
 #
-#   This script takes a file (server_update_list) as input. Place 
-#   this file, along with the tempplate.file in the same directory
+#   Ideally, this script should be run on a series of servers that
+#   utilize ssh keys to avoid a password prompt for every server,
+#   however, the script will still work with the password prompt
+#   and will register a failure to log in to a server as a failed 
+#   update attempt. This script takes a file (server_update_list) as input. 
+#   Place this file, along with the tempplate.file in the same directory
 #   as this script.Create this file as a list of IP addresses 
 #   targeted for the updated file. The script will iterate throught 
 #   the list, retrieving the facter value from the remote server, 
@@ -19,7 +23,7 @@ fail=0
 
 for server in `cat server_update_list`      #This loops through the list of IPs
 do
-widget=`ssh -f root@$server 'facter -p widget'`   #Remotely retrieve facter value from machine
+widget=`ssh -f root@$server 'mkdir -p /etc/widgetfile;facter -p widget'`   #Remotely retrieve facter value from machine
 
 if [[ -n $widget && $? -eq 0 ]]; then   #Make sure there is a value for widget and ssh fork exited clean
 
