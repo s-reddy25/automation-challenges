@@ -1,0 +1,7 @@
+Configuration management challenge notes:
+
+I used a simple bash script to accomplish this task. 
+
+1. created script.sh to change the static value to dynamic value
+2. created a file (ips.txt) with the list of servers that the template needs to be pushed ( I considered 5 servers)
+3. created a push.sh script to place the template and give an output with successful and failure number of servers.

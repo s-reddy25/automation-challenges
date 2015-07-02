@@ -1,0 +1,5 @@
+1. grep "/production/file_metadata/modules/ssh/sshd_config" puppet_access_ssl.log |grep -v 200 |wc -l
+
+2. grep -v 200 puppet_access_ssl.log |awk '{ print $9 }' |wc -l
+
+3. grep PUT puppet_access_ssl.log |grep "/dev/report/" |uniq -c |awk '{print $1,$2}'

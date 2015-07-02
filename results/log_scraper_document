@@ -1,0 +1,9 @@
+log scraper challenge notes:
+
+I used a single one liner command to accomplish the task. If you want the output to be in a defined format then we can include these into a script.
+
+1. I used grep command to check how many times the URL is fetched and then i used -v to check the code with is not 200.
+
+2. I used grep -v and awk to take out 200 from the log file and then with did a count on the other code.
+
+3. I used grep to get the PUT request and then further greped for the path and then looked for different IPs.Every IP was used only once.
